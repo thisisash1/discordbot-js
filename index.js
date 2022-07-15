@@ -27,7 +27,7 @@ client.on('messageCreate', msg => {
         }
 
         if(msg.content === process.env.PREFIX + 'server') {
-            msg.channel.send(`현재 서버의 이름은 ${msg.guild.name} 입니다.\n총 멤버 수는 ${msg.guild.memberCounts} 명 입니다.`)
+            msg.channel.send(`현재 서버의 이름은 ${msg.guild.name} 입니다.\n총 멤버 수는 ${msg.guild.memberCount} 명 입니다.`)
           }
 
         console.log(msg.content)
