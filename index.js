@@ -3,11 +3,25 @@ const client = new Discord.Client({ intents: ["GUILDS", "GUILD_MESSAGES"] })
 const dotenv = require('dotenv'); 
 dotenv.config();
 
+if (process.env.TOKEN == null) {
+    console.log("An discord token is empty.");
+    return 0;
+}
+
+const discordLogin = async() => {
+    try {
+        await client.login(process.env.TOKEN);  
+    } catch (TOKEN_INVALID) {
+        console.log("An invalid token was provided");
+    }
+}
+
+discordLogin();
+
 
 client.on('ready', () => {
-    console.log(`${client.user.tag} 사용자가 로그인하였습니다.`);
-  
-  });
+    console.log(`Logged in as ${client.user.tag}.`);
+});
 
   
 client.on('messageCreate', msg => {
@@ -36,6 +50,3 @@ client.on('messageCreate', msg => {
     }
     
 });
-
-
-client.login(process.env.TOKEN);
