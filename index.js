@@ -8,13 +8,19 @@ if (process.env.TOKEN == null) {
     return 0;
 }
 
+const sleep = (ms) => {
+    return new Promise((r) => setTimeout(r, ms));
+}
+
 const discordLogin = async() => {
     try {
         await client.login(process.env.TOKEN);  
     } catch (TOKEN_INVALID) {
         console.log("An invalid token was provided");
+        sleep(60000).then(() => console.log("Service is getting stopped automatically"));
     }
 }
+
 
 discordLogin();
 
