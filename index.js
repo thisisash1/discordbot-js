@@ -3,13 +3,14 @@ const client = new Discord.Client({ intents: ["GUILDS", "GUILD_MESSAGES"] })
 const dotenv = require('dotenv'); 
 dotenv.config();
 
-if (process.env.TOKEN == null) {
-    console.log("An discord token is empty.");
-    return 0;
-}
-
 const sleep = (ms) => {
     return new Promise((r) => setTimeout(r, ms));
+}
+
+if (process.env.TOKEN == null) {
+    console.log("An discord token is empty.");
+    sleep(60000).then(() => console.log("Service is getting stopped automatically"));
+    return 0;
 }
 
 const discordLogin = async() => {
