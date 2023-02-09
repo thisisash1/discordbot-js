@@ -10,15 +10,20 @@ useNewUrlParser: true ,  useUnifiedTopology: true
 }).then(console.log("DB CONNECT"))
 
 client.once('ready',()=>{
-    console.log("BOT IS READY")
+    console.log("봇이 준비되었습니다")
 })
 
 client.on('messageCreate' , message=>{
     if(message.content == "푸하"){
-        message.reply("푸하 PUUB! PUUB!")
+        message.reply("푸나잇")
     }
-    if(message.content == "푸나잇"){
-        message.reply("푸나잇 PUUB! PUUB!")
+
+    if(message.content == "/강남점 컨시어지"){
+        message.reply("신관 3층 어딘가에 있습니다.")
+    }
+
+    if(message.content == "/홀더인증"){
+        message.reply("#✅｜holder-verify 채널에서 진행하시면 됩니다.")
     }
 })
 client.commands = new Collection()
@@ -43,4 +48,4 @@ client.on('messageCreate' , message=>{
     }
 })
 
-client.login("MTA0ODA4MTk3NDkyMjg0NjM1OQ.GhDYfA.X1VqS2USZyhKqdvgOrioUCScsKhz8-_sM2UV0U")
+client.login("MTA0Nzg1MzQ5NDU3NDUxODMzMg.GBl2-1.gUhGUJH3KHab1osjaIOYFyWK_4BnKRu6fuhIyo")
